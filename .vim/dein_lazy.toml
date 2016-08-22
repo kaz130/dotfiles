@@ -1,0 +1,39 @@
+[[plugins]]
+repo = 'tyru/caw.vim'
+on_path = '.*'
+hook_add = '''
+    nmap <Leader>c <Plug>(caw:hatpos:toggle)
+    vmap <Leader>c <Plug>(caw:hatpos:toggle)
+    nmap <Leader>C <Plug>(caw:wrap:comment)
+    vmap <Leader>C <Plug>(caw:wrap:comment)
+'''
+
+[[plugins]]
+repo = 'shougo/unite.vim'
+depends = 'neomru.vim'
+
+[[plugins]]
+repo = 'shougo/neomru.vim'
+on_path = ".*"
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_path = '.toml'
+
+[[plugins]]
+repo = 'deton/jasegment.vim'
+on_path = '.*'
+
+[[plugins]]
+repo = 'thinca/vim-template'
+on_path = '.*'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+on_path = '.*'
+hook_add = 'source ~/.vim/plugins/vim-quickrun.vim'
+
+[[plugins]]
+repo = 'cocopon/colorswatch.vim'
+on_cmd = 'ColorSwatchGenerate'
+

@@ -1,0 +1,84 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+# [[plugins]]
+# repo = 'altercation/vim-colors-solarized'
+# hook_add = '''
+#     set background=dark
+#     colorscheme solarized
+# '''
+
+# [[plugins]]
+# repo = 'nanotech/jellybeans.vim'
+# hook_add = '''
+#     colorscheme jellybeans
+# '''
+
+# [[plugins]]
+# repo = 'w0ng/vim-hybrid'
+# hook_add = '''
+#     set background=dark
+#     colorscheme hybrid
+# '''
+
+[[plugins]]
+repo = 'jpo/vim-railscasts-theme'
+hook_add = '''
+    colorscheme railscasts
+'''
+
+[[plugins]]
+repo = 'shougo/vimfiler.vim'
+depends = 'unite.vim'
+hook_add = '''
+    " vimfilerをデフォルトのファイラーにする
+    let g:vimfiler_as_default_explorer = 1
+    " セーフモードを無効する
+    let g:vimfiler_safe_mode_by_default = 0
+
+    noremap <Space>.v :<C-u>edit ~/.vim/<CR>
+    '''
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = 'source ~/.vim/plugins/lightline.vim'
+
+[[plugins]]
+repo = 'cocopon/lightline-hybrid.vim'
+
+[[plugins]]
+repo = 'thinca/vim-template'
+
+[[plugins]]
+repo = 'sudo.vim'
+
+[[plugins]]
+repo = 'shougo/context_filetype.vim'
+
+[[plugins]]
+repo = 'shougo/deoplete.nvim'
+depends = 'context_filetype.vim'
+if = "has('nvim')"
+hook_add = '''
+    let g:deoplete#enable_at_startup = 1
+'''
+
+[[plugins]]
+repo = 'shougo/neocomplete.vim'
+depends = 'context_filetype.vim'
+if = "has('lua')"
+hook_add = '''
+    let g:neocomplete#enable_at_startup = 1
+    let g:neocomplete#enable_smart_case = 1
+'''
+
+[[plugins]]
+repo = 'lambdalisue/vim-gita'
+
+[[plugins]]
+repo = 'thinca/vim-localrc'
+

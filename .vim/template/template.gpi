@@ -1,0 +1,21 @@
+f(x) = x + a
+a = 1
+
+# fit f(x) './data.dat' via a,b
+
+# set xtics 50
+
+# set xrange [-5:5]
+# set yrange [0:5]
+
+# set format x "%2.1e"
+# set format y "%2.1e"
+
+set xlabel "hoge"
+set ylabel "fuga [{/Symbol A}]"
+
+# plot './data.dat' linecolor rgb "#000000" notitle, \
+#     f(x) linecolor rgb "#000000" title "Title" , \
+
+plot f(x) linecolor rgb "#000000" title "Title"
+

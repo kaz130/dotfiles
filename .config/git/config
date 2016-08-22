@@ -1,0 +1,24 @@
+[include]
+    path = ~/.gitconfig.local
+# [user]
+# 	name = example
+# 	email = example@example.com
+[colur]
+	ui = true
+[alias]
+	co = checkout
+	st = status
+	br = branch
+	ci = commit
+[core]
+	precomposeunicode = true
+	quotepath = false
+
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[push]
+	default = simple
