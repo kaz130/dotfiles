@@ -129,6 +129,6 @@ case ${OSTYPE} in
         ;;
 esac
 if (( $+commands[screenfetch] )); then
-    screenfetch
+    archey
 fi
 
