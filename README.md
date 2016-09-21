@@ -1,10 +1,13 @@
+# INSTALL
+```
+$ git clone git@github.com:kaz130/dotfiles.git
+```
+
 ## Vim
-#### CUI
 ```
 # aptitude install vim-nox
 ```
-
-### GUI
+or
 ```
 # aptitude install vim-gnome
 ```
