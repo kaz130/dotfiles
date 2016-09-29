@@ -128,7 +128,7 @@ case ${OSTYPE} in
         alias ls='ls -F --color=auto'
         ;;
 esac
-if (( $+commands[screenfetch] )); then
+if (( $+commands[archey] )); then
     archey
 fi
 
