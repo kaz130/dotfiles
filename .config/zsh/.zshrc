@@ -20,6 +20,10 @@ case ${OSTYPE} in
         # Mac
         local prompt_color=green
         ;;
+    linux-gnueabihf)
+        # Linux EABI
+        local prompt_color=cyan
+        ;;
     linux*)
         # Linux
         local prompt_color=blue
