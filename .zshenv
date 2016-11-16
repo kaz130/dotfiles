@@ -26,6 +26,11 @@ export XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 export GIBO_BOILERPLATES=$XDG_CONFIG_HOME/gibo
 
+export LESS="-i -M -R -W"
+export LESSOPEN="| /bin/lesspipe %s";
+export LESSCLOSE="/bin/lesspipe %s %s";
+export PAGER=less
+
 # 環境変数EDITORに vim を設定
 if (( $+commands[vim] )); then
     export EDITOR="vim"
