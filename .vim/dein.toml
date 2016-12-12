@@ -19,16 +19,16 @@ build = 'make'
 # '''
 
 # [[plugins]]
-# repo = 'w0ng/vim-hybrid'
+# repo = 'jpo/vim-railscasts-theme'
 # hook_add = '''
-#     set background=dark
-#     colorscheme hybrid
+#     colorscheme railscasts
 # '''
 
 [[plugins]]
-repo = 'jpo/vim-railscasts-theme'
+repo = 'w0ng/vim-hybrid'
 hook_add = '''
-    colorscheme railscasts
+    set background=dark
+    colorscheme hybrid
 '''
 
 [[plugins]]
