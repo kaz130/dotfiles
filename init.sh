@@ -15,7 +15,7 @@ done
 
 # XDG_CONFIG_HOME
 cd $HOME/dotfiles/.config
-mkdir -p ~/.config
+mkdir -p $HOME/.config
 for f in *
 do
     [[ "$f" == ".DS_Store" ]] && continue

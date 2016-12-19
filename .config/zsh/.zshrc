@@ -1,7 +1,11 @@
 # zsh-completions を有効にする
-if [ -e /usr/local/share/zsh-completions ]; then
-    fpath=(/usr/local/share/zsh-completions $fpath)
-fi
+fpath=(
+    /usr/local/share/zsh-completions(N-/)
+    $HOME/.zsh-completions(N-/)
+
+    $fpath
+)
+
 
 # 色を使えるようにする
 autoload -Uz colors
