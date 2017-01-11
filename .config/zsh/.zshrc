@@ -62,6 +62,11 @@ zstyle ":completion:*:sudo:*" command-path /usr/local/bin /usr/sbin \
 # ps コマンドのプロセス名補完
 zstyle ":completion:*:processes" command "ps x -o pid,s,args"
 
+# gibo の補完
+if [ -e "$HOME/.gibo-completion.zsh" ]; then
+    source "$HOME/.gibo-completion.zsh"
+fi
+
 # vcs_info
 # git に関する情報を表示
 autoload -Uz vcs_info
