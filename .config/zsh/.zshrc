@@ -136,6 +136,14 @@ case ${OSTYPE} in
         alias ls='ls -F --color=auto'
         ;;
 esac
+
+# mkdir したディレクトリに cd するコマンド
+mkcdir ()
+{
+    mkdir -p -- "$1" &&
+        cd -P -- "$1"
+}
+
 if (( $+commands[archey] )); then
     archey
 fi
