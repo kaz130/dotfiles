@@ -1,14 +1,15 @@
 # INSTALL
 ```
-$ git clone git@github.com:kaz130/dotfiles.git
+git clone git@github.com:kaz130/dotfiles.git
+cd dotfiles
+./init.sh
 ```
 
 ## Vim
 ```
-# aptitude install vim-nox
+sudo aptitude install vim-nox
 ```
 or
 ```
-# aptitude install vim-gnome
+sudo aptitude install vim-gnome
 ```
-
