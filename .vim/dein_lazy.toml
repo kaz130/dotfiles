@@ -37,3 +37,7 @@ hook_add = 'source ~/.vim/plugins/vim-quickrun.vim'
 repo = 'cocopon/colorswatch.vim'
 on_cmd = 'ColorSwatchGenerate'
 
+[[plugins]]
+repo = 'iwataka/gitignore.vim'
+on_cmd = ['Gitignore', 'GitignoreUpdate']
+

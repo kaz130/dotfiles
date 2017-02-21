@@ -41,12 +41,7 @@ PROMPT="
 %# "
 
 # エイリアス
-# 大抵の環境では vi コマンドで vim が起動する
-# vi コマンドで vim を実行する
-# これは、パッケージマネージャを利用して新しいバージョンの vim がインストールされるため
-if (( $+commands[vim] )); then
-    alias vi='\vim'
-fi
+alias sl='sl -e'
 
 # 補完
 # 補完機能を有効にする
@@ -61,6 +56,11 @@ zstyle ":completion:*:sudo:*" command-path /usr/local/bin /usr/sbin \
     /usr/bin /sbin /bin /usr/X11R6/bin
 # ps コマンドのプロセス名補完
 zstyle ":completion:*:processes" command "ps x -o pid,s,args"
+
+# gibo の補完
+if [ -e "$HOME/.gibo-completion.zsh" ]; then
+    source "$HOME/.gibo-completion.zsh"
+fi
 
 # vcs_info
 # git に関する情報を表示
@@ -153,6 +153,13 @@ case $1 in
 esac
 }
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
+
+# mkdir したディレクトリに cd するコマンド
+mkcdir ()
+{
+    mkdir -p -- "$1" &&
+        cd -P -- "$1"
+}
 
 if (( $+commands[archey] )); then
     archey
