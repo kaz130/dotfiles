@@ -38,15 +38,12 @@ let g:quickrun_config.cpp = {
 let g:quickrun_config.python = {'command' : 'python3'}
 
 " LaTeX
-" エラーメッセージが正常に表示されなくなるので、vimprocを使わない
 let g:quickrun_config.tex = {
-    \ 'exec': [
-    \         '%c %o %s',
-    \         '%c -c %s',
-    \         ],
+    \ 'exec': ['%c %o %s'],
     \ 'command' : 'latexmk',
     \ 'cmdopt' : '-pv',
-    \ 'runner' : 'system',
+    \ 'runner' : 'vimproc',
+    \ 'outputer' : 'error',
     \ 'outputter/error/success' : 'quickfix',
     \ 'outputter/error/error' : 'quickfix',
     \}

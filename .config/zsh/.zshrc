@@ -43,6 +43,13 @@ PROMPT="
 # エイリアス
 alias sl='sl -e'
 
+# 大抵の環境では vi コマンドで vim が起動する
+# vi コマンドで vim を実行する
+# これは、パッケージマネージャを利用して新しいバージョンの vim がインストールされるため
+if (( $+commands[vim] )); then
+    alias vi='\vim'
+fi
+
 # 補完
 # 補完機能を有効にする
 autoload -Uz compinit
