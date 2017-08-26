@@ -1,67 +1,39 @@
-\documentclass{jsarticle}
+\documentclass[dvipdfmx]{jsarticle}
 
 \usepackage{float}
-\usepackage{array}
-\usepackage{listings, jlisting}
-\usepackage{fancyhdr, lastpage}
-\usepackage{amsmath}
-\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{newtxtext,newtxmath}
 \usepackage{framed}
-\usepackage{here}
-\usepackage[dvipdfmx]{graphicx}
-\usepackage[hang,small,bf]{caption}
-\usepackage[subrefformat=parens]{subcaption}
-\usepackage{algpseudocode, algorithm}
-\usepackage{multirow}
+\usepackage[final]{graphicx}
+\usepackage{booktabs}
 \usepackage{url}
+\usepackage{tikz, circuitikz}
 
-\captionsetup{compatibility=false}
-
-\pagestyle{fancy}
-\rhead{}
-\rfoot{\thepage{}/{}\pageref{LastPage}}
-\cfoot{}
-\renewcommand{\headrulewidth}{0pt}
-
-\lstset{
-    language={c},
-    showstringspaces=false,
-    basicstyle={\small},
-    identifierstyle={\small},
-    commentstyle={\small\texttt},
-    keywordstyle={\small\bfseries},
-    ndkeywordstyle={\small},
-    stringstyle={\small\texttt},
-    frame={tbrl},
-    breaklines=true,
-    columns=[l]{fullflexible}
-}
-
-% コンパイル時に画像を挿入しないようにする
-% 最後に \figuretrue をコメントアウトすれば良い
-% 画像を挿入するときは \iffigure と \fi で囲む
-\newif\iffigure
-% \figurefalse
-\figuretrue
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\tablename}{Table}
 
 \begin{document}
 
-\section{目的}
+% 概要 250字程度
+% 目的 300字程度
 
-\section{概要}
+\section{理論的背景} % レポート用紙1枚程度
 
-\section{実験方法}
+\section{実験方法} % レポート用紙2枚程度
 
 \section{実験結果}
 
-\section{考察}
+\section{考察} % レポート用紙2枚程度
 
-\section{結論}
+\section{工夫した点} % 100字程度
 
-\begin{thebibliography}{9}
-    \item
-        著者名 : 『タイトル』, p, 出版社(年)
-\end{thebibliography}
+\section{まとめ} % 250字程度
+
+% \begin{thebibliography}{9}
+% \end{thebibliography}
+
+% \appendix
+% \section{関連調査事項}
 
 \end{document}
 
