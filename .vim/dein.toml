@@ -54,9 +54,6 @@ repo = 'cocopon/lightline-hybrid.vim'
 repo = 'thinca/vim-template'
 
 [[plugins]]
-repo = 'sudo.vim'
-
-[[plugins]]
 repo = 'shougo/context_filetype.vim'
 
 [[plugins]]
