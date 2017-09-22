@@ -57,8 +57,11 @@ filetype plugin indent on
 " setting {{{
 syntax on
 
-" utf-8で保存する
+" utf-8 でエンコーディング
+set termencoding=utf-8
+set encoding=utf-8
 set fileencoding=utf-8
+set fileencodings=utf-8,cp932
 
 " スワップファイル
 set swapfile
