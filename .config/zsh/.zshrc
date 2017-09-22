@@ -42,6 +42,7 @@ PROMPT="
 
 # エイリアス
 alias sl='sl -e'
+alias reload='exec zsh -l'
 
 # 大抵の環境では vi コマンドで vim が起動する
 # vi コマンドで vim を実行する
