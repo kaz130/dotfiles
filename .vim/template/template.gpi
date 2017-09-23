@@ -1,21 +1,15 @@
-f(x) = x + a
-a = 1
-
-# fit f(x) './data.dat' via a,b
+set datafile separator ","
 
 # set xtics 50
-
-# set xrange [-5:5]
-# set yrange [0:5]
 
 # set format x "%2.1e"
 # set format y "%2.1e"
 
-set xlabel "hoge"
-set ylabel "fuga [{/Symbol A}]"
+set xrange [0:1000]
+set yrange [-50:20]
 
-# plot './data.dat' linecolor rgb "#000000" notitle, \
-#     f(x) linecolor rgb "#000000" title "Title" , \
+set xlabel "Frequency {/Times-Italic f} [Hz]"
+set ylabel "Gain [dB]"
 
-plot f(x) linecolor rgb "#000000" title "Title"
+plot 'data.csv' using 1:2 with lines title "Theoretical value"
 
