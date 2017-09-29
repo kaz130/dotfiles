@@ -32,7 +32,7 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'shougo/vimfiler.vim'
+repo = 'Shougo/vimfiler.vim'
 depends = 'unite.vim'
 hook_add = '''
     " vimfilerをデフォルトのファイラーにする
@@ -60,10 +60,10 @@ repo = 'cocopon/lightline-hybrid.vim'
 repo = 'thinca/vim-template'
 
 [[plugins]]
-repo = 'shougo/context_filetype.vim'
+repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
-repo = 'shougo/deoplete.nvim'
+repo = 'Shougo/deoplete.nvim'
 depends = 'context_filetype.vim'
 if = "has('nvim')"
 hook_add = '''
@@ -71,7 +71,7 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'shougo/neocomplete.vim'
+repo = 'Shougo/neocomplete.vim'
 depends = 'context_filetype.vim'
 if = "has('lua')"
 hook_add = '''
