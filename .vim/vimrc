@@ -208,6 +208,9 @@ set t_Co=256
 " .tex ファイルは基本的に LaTeX として設定する
 let g:tex_flavor = "latex"
 
+" tex の conceal を無効化
+let g:tex_conceal = ''
+
 " mapping {{{
 " <C-u> キー入力前の範囲指定の数字を削除する
 " <CR> キャリッジリターン
