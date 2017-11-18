@@ -1,0 +1,23 @@
+snippet figure2
+    \begin{figure}[${1}]
+        \centering
+        ${4:TARGET}
+        \caption{${2}}
+        \label{${3}}
+    \end{figure}
+
+# TikZ
+snippet tikz_includegraphics
+    \node[anchor=south west] (image) at (0,0)
+        {\includegraphics[${1:width=${2\}}]{${3}}};
+
+snippet tikz_help_lines
+    \draw[help lines] (0,0) grid (${1},${2});
+
+# circuiTikZ
+snippet circuitikz
+alias   \circuitikz
+    \begin{circuitikz}
+        ${1:TARGET}
+    \end{circuitikz}
+
