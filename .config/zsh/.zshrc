@@ -169,7 +169,7 @@ mkcdir ()
         cd -P -- "$1"
 }
 
-if (( $+commands[archey] )); then
-    archey
-fi
+# if (( $+commands[archey] )); then
+#     archey
+# fi
 
