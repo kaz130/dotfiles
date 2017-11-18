@@ -1,12 +1,11 @@
 set datafile separator ","
 
-# set xtics 50
+set grid
 
-# set format x "%2.1e"
-# set format y "%2.1e"
+# set format x "%2.1f"
+# set format y "%2.1f"
 
 set xrange [0:1000]
-set yrange [-50:20]
 
 set xlabel "Frequency {/Times-Italic f} [Hz]"
 set ylabel "Gain [dB]"
