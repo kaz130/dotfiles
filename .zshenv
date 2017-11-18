@@ -12,6 +12,9 @@ path=(
     $HOME/local/bin(N-/)
     $HOME/bin(N-/)
 
+    # Android Debug Bridge
+    $HOME/Library/Android/sdk/platform-tools
+
     # Debian GNU/Linux
     /var/lib/gems/*/bin(N-/)
 
@@ -42,7 +45,7 @@ fi
 case ${OSTYPE} in
     darwin*)
         # Mac
-        export ANDROID_HOME=/usr/local/opt/android-sdk
+        export ANDROID_HOME=$HOME/Library/Android/sdk
         ;;
     linux*)
         ;;
