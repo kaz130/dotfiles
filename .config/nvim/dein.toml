@@ -42,7 +42,7 @@ hook_add = '''
     " 自動でカレントディレクトリを変更する
     let g:vimfiler_enable_auto_cd = 1
 
-    noremap <Space>.v :<C-u>edit ~/.vim/<CR>
+    noremap <Space>.v :<C-u>edit ~/.config/nvim/<CR>
     if has('mac')
         autocmd FileType vimfiler noremap <buffer> <Space>o
         \ :call system('open '.vimfiler#get_status_string())<CR>
@@ -51,7 +51,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
-hook_add = 'source ~/.vim/plugins/lightline.vim'
+hook_add = 'source ~/.config/nvim/plugins/lightline.vim'
 
 [[plugins]]
 repo = 'cocopon/lightline-hybrid.vim'

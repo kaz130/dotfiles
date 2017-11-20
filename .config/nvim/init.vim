@@ -11,7 +11,7 @@ augroup END
 filetype off
 filetype plugin indent off
 
-let g:rc_dir = '~/.vim'
+let g:rc_dir = $XDG_CONFIG_HOME . '/nvim'
 let mapleader = ','
 
 " dein {{{

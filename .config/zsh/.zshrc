@@ -45,9 +45,11 @@ alias sl='sl -e'
 alias reload='exec zsh -l'
 
 # 大抵の環境では vi コマンドで vim が起動する
-# vi コマンドで vim を実行する
+# vi コマンドで nvim/vim を実行する
 # これは、パッケージマネージャを利用して新しいバージョンの vim がインストールされるため
-if (( $+commands[vim] )); then
+if (( $+commands[nvim] )); then
+    alias vi='\nvim'
+elif (( $+commands[vim] )); then
     alias vi='\vim'
 fi
 
