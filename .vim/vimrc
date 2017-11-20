@@ -226,11 +226,36 @@ noremap gj j
 noremap gk k
 
 " sキーでウィンドウやタブを操作する
-noremap s <C-w>
+noremap s <Nop>
+" split window
+noremap ss :<C-u>split<CR>
+noremap sv :<C-u>vsplit<CR>
+noremap sh <C-w>h
+noremap sj <C-w>j
+noremap sk <C-w>k
+noremap sl <C-w>l
+noremap sw <C-w>w
+noremap sH <C-w>H
+noremap sJ <C-w>J
+noremap sK <C-w>K
+noremap sL <C-w>L
+noremap sr <C-w>r
+noremap so <C-w>o
+noremap s= <C-w>=
+noremap s> <C-w>>
+noremap s< <C-w><
+noremap s+ <C-w>+
+noremap s- <C-w>-
+" tab
 noremap st :<C-u>tabnew<CR>
 noremap sn gt
 noremap sp gT
+noremap sq :<C-u>quit<CR>
 noremap sQ :<C-u>bdelete<CR>
+" unite
+nnoremap sT :<C-u>Unite tab<CR>
+nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
+nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
 
 noremap Y y$
 
@@ -292,6 +317,13 @@ noremap <Space>.z :<C-u>edit $ZDOTDIR/.zshrc<CR>
 
 " init.vim の再読み込み
 noremap <Space>.s :<C-u>source $MYVIMRC<CR>
+
+" unite
+nnoremap [unite] <Nop>
+nmap <Space>u [unite]
+
+nnoremap <silent> [unite]c   :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
+nnoremap <silent> [unite]b   :<C-u>Unite buffer<CR>
 
 " }}}
 
