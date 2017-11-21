@@ -3,26 +3,6 @@ repo = 'Shougo/dein.vim'
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
-
-# [[plugins]]
-# repo = 'altercation/vim-colors-solarized'
-# hook_add = '''
-#     set background=dark
-#     colorscheme solarized
-# '''
-
-# [[plugins]]
-# repo = 'nanotech/jellybeans.vim'
-# hook_add = '''
-#     colorscheme jellybeans
-# '''
-
-# [[plugins]]
-# repo = 'w0ng/vim-hybrid'
-# hook_add = '''
-#     set background=dark
-#     colorscheme hybrid
-# '''
 hook_post_update = '''
     if dein#util#_is_windows()
         let cmd = 'tools\\update-dll-mingw'
@@ -37,10 +17,7 @@ hook_post_update = '''
 '''
 
 [[plugins]]
-repo = 'jpo/vim-railscasts-theme'
-hook_add = '''
-    colorscheme railscasts
-'''
+repo = 'nanotech/jellybeans.vim'
 
 [[plugins]]
 repo = 'Shougo/vimfiler.vim'

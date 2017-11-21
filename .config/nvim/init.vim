@@ -59,6 +59,7 @@ filetype plugin indent on
 
 " setting {{{
 syntax on
+colorscheme jellybeans
 
 " utf-8 でエンコーディング
 set termencoding=utf-8
@@ -200,9 +201,6 @@ set timeout
 set ttimeout
 set timeoutlen=500
 set ttimeoutlen=0
-
-" 256色表示
-set t_Co=256
 
 " .tex ファイルは基本的に LaTeX として設定する
 let g:tex_flavor = "latex"
