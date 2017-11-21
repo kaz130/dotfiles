@@ -9,8 +9,19 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'shougo/denite.nvim'
+depends = 'neomru.vim'
+on_event = 'BufRead'
+hook_post_source = 'source $XDG_CONFIG_HOME/nvim/plugins/denite.vim'
+
+[[plugins]]
 repo = 'shougo/neomru.vim'
 on_path = ".*"
+
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+on_path = '.*'
+on_event = 'InsertEnter'
 
 [[plugins]]
 repo = 'cespare/vim-toml'
