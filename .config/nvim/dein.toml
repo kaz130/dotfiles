@@ -102,3 +102,6 @@ repo = 'lambdalisue/vim-gita'
 [[plugins]]
 repo = 'thinca/vim-localrc'
 
+[[plugins]]
+repo = 'kana/vim-submode'
+
