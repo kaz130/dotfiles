@@ -33,8 +33,11 @@ export LESSOPEN="| /bin/lesspipe %s";
 export LESSCLOSE="/bin/lesspipe %s %s";
 export PAGER=less
 
-# 環境変数EDITORに vim を設定
-if (( $+commands[vim] )); then
+# 環境変数EDITORに nvim を設定
+if (( $+commands[nvim] )); then
+    export EDITOR="nvim"
+    export GIT_EDITOR="nvim"
+elif (( $+commands[vim] )); then
     export EDITOR="vim"
     export GIT_EDITOR="vim"
 else
