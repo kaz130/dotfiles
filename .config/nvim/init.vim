@@ -259,10 +259,6 @@ call submode#map('bufmove', 'n', '', '>', '<C-w>>')
 call submode#map('bufmove', 'n', '', '<', '<C-w><')
 call submode#map('bufmove', 'n', '', '+', '<C-w>+')
 call submode#map('bufmove', 'n', '', '-', '<C-w>-')
-" unite
-nnoremap sT :<C-u>Unite tab<CR>
-nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
-nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
 
 noremap Y y$
 
@@ -325,12 +321,6 @@ noremap <Space>.z :<C-u>edit $ZDOTDIR/.zshrc<CR>
 " init.vim の再読み込み
 noremap <Space>.s :<C-u>source $MYVIMRC<CR>
 
-" unite
-nnoremap [unite] <Nop>
-nmap <Space>u [unite]
-
-nnoremap <silent> [unite]c   :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
-nnoremap <silent> [unite]b   :<C-u>Unite buffer<CR>
 
 " }}}
 

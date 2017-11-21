@@ -9,10 +9,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'shougo/unite.vim'
-depends = 'neomru.vim'
-
-[[plugins]]
 repo = 'shougo/neomru.vim'
 on_path = ".*"
 
