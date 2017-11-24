@@ -15,7 +15,6 @@ let g:rc_dir = $XDG_CONFIG_HOME . '/nvim'
 let mapleader = ','
 
 " dein {{{
-
 " プラグインが実際にインストールされるディレクトリ
 let s:dein_dir = $XDG_CACHE_HOME . '/dein'
 
@@ -207,7 +206,6 @@ let g:tex_flavor = "latex"
 
 " tex の conceal を無効化
 let g:tex_conceal = ''
-
 " }}}
 
 " mapping {{{
@@ -320,8 +318,6 @@ noremap <Space>.z :<C-u>edit $ZDOTDIR/.zshrc<CR>
 
 " init.vim の再読み込み
 noremap <Space>.s :<C-u>source $MYVIMRC<CR>
-
-
 " }}}
 
 " autocmd / function {{{
