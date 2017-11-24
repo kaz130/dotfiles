@@ -10,9 +10,10 @@ hook_add = '''
 
 [[plugins]]
 repo = 'shougo/denite.nvim'
+on_cmd = 'Denite'
 depends = 'neomru.vim'
 on_event = 'BufRead'
-hook_post_source = 'source $XDG_CONFIG_HOME/nvim/plugins/denite.vim'
+hook_source = 'source $XDG_CONFIG_HOME/nvim/plugins/denite.vim'
 
 [[plugins]]
 repo = 'shougo/neomru.vim'
