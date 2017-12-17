@@ -297,27 +297,6 @@ nnoremap ZQ :<C-u>q<CR>
 " 選択した文字列をヤンク
 " ヤンクされた文字を最終検索パターン用レジスタに格納して検索
 vnoremap * y:<C-u>let @/ = @0<CR>n
-
-" ターミナルモード
-if has('nvim')
-    nnoremap <Space>t :<C-u>:terminal<CR>
-    nnoremap <Space><S-t> :<C-u>tabnew<CR>:terminal<CR>
-
-    " 選択した文字列をターミナルモードで実行
-    vnoremap <Space>t y:<C-u>tabnew<CR>:terminal <C-r>0<CR>
-
-    tnoremap <ESC> <C-\><C-n>
-    tnoremap <C-\><C-n> <ESC>
-endif
-
-" 設定ファイルを開く
-noremap <Space>. :<C-u>edit $MYVIMRC<CR>
-noremap <Space>.. :<C-u>edit $MYVIMRC<CR>
-
-noremap <Space>.z :<C-u>edit $ZDOTDIR/.zshrc<CR>
-
-" init.vim の再読み込み
-noremap <Space>.s :<C-u>source $MYVIMRC<CR>
 " }}}
 
 " autocmd / function {{{
