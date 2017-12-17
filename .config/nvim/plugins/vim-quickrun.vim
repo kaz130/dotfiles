@@ -12,7 +12,7 @@ let g:quickrun_config._ = {
 
 let g:quickrun_no_default_key_mappings = 1
 nnoremap <Leader>r :<C-u>write<CR>:QuickRun -mode n<CR>
-xnoremap <Leader>r :<C-u>write<CR>gv:QuickRun -mode v<CR>
+vnoremap <Leader>r :<C-u>write<CR>gv:QuickRun -mode v -type tmptex<CR>
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
 
@@ -58,3 +58,42 @@ let g:quickrun_config.tex = {
     \                      ],
     \}
 
+let g:quickrun_config.tmptex = {
+    \ 'exec': [
+    \         'mv %s %a/tmptex.latex',
+    \         'latexmk -pdfdvi -pv -output-directory=%a %a/tmptex.latex',
+    \         ],
+    \ 'args' : expand("%:p:h:gs?\\\\?/?"),
+    \ 'outputter' : 'error',
+    \ 'outputter/error/success' : 'quickfix',
+    \ 'outputter/error/error' : 'quickfix',
+    \
+    \ 'hook/eval/enable' : 1,
+    \ 'hook/eval/cd' : "%s:r",
+    \
+    \ 'hook/eval/template' : '\documentclass[dvipdfmx]{jsarticle}'
+    \                       .'\usepackage{float}'
+    \                       .'\usepackage{mathtools}'
+    \                       .'\usepackage{newtxtext,newtxmath}'
+    \                       .'\usepackage{framed}'
+    \                       .'\usepackage[final]{graphicx}'
+    \                       .'\usepackage{subcaption}'
+    \                       .'\usepackage{booktabs}'
+    \                       .'\usepackage{url}'
+    \                       .'\usepackage{tikz}'
+    \                       .'\usepackage{circuitikz}'
+    \                       .'\usetikzlibrary{intersections, calc}'
+    \                       .'\begin{document}'
+    \                       .'%s'
+    \                       .'\end{document}',
+    \
+    \ 'hook/sweep/files' : [
+    \                      '%a/tmptex.latex',
+    \                      '%a/tmptex.out',
+    \                      '%a/tmptex.fdb_latexmk',
+    \                      '%a/tmptex.fls',
+    \                      '%a/tmptex.log',
+    \                      '%a/tmptex.aux',
+    \                      '%a/tmptex.dvi'
+    \                      ],
+    \}
