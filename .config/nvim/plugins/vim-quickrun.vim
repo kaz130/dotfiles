@@ -12,7 +12,6 @@ let g:quickrun_config._ = {
 
 let g:quickrun_no_default_key_mappings = 1
 nnoremap <Leader>r :<C-u>write<CR>:QuickRun -mode n<CR>
-vnoremap <Leader>r :<C-u>write<CR>gv:QuickRun -mode v -type tmptex<CR>
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
 
