@@ -49,3 +49,7 @@ on_cmd = 'ColorSwatchGenerate'
 repo = 'iwataka/gitignore.vim'
 on_cmd = ['Gitignore', 'GitignoreUpdate']
 
+[[plugins]]
+repo = 'lervag/vimtex'
+on_ft = 'tex'
+
