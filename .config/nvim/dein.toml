@@ -87,3 +87,5 @@ repo = 'thinca/vim-localrc'
 [[plugins]]
 repo = 'kana/vim-submode'
 
+[[plugins]]
+repo = 'cocopon/vaffle.vim'
