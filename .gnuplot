@@ -1,1 +1,1 @@
-set term aqua
+set terminal aqua size 640,480
