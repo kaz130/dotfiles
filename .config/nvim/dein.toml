@@ -96,3 +96,9 @@ hook_add = '''
     noremap <silent> <Leader>m :OverCommandLine<CR>
 '''
 
+[[plugins]]
+repo = 'arecarn/vim-crunch'
+
+[[plugins]]
+repo = 'arecarn/vim-selection'
+
