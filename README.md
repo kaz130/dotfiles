@@ -5,11 +5,7 @@ cd dotfiles
 ./init.sh
 ```
 
-## Vim
+## Neovim
 ```
-sudo aptitude install vim-nox
-```
-or
-```
-sudo aptitude install vim-gnome
+sudo apt install neovim
 ```

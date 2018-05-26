@@ -81,3 +81,15 @@ repo = 'kana/vim-submode'
 [[plugins]]
 repo = 'cocopon/vaffle.vim'
 
+[[plugins]]
+repo = 'osyo-manga/vim-over'
+hook_add = '''
+    noremap <silent> <Leader>m :OverCommandLine<CR>
+'''
+
+[[plugins]]
+repo = 'arecarn/vim-crunch'
+
+[[plugins]]
+repo = 'arecarn/vim-selection'
+
