@@ -204,8 +204,9 @@ set ttimeoutlen=0
 " .tex ファイルは基本的に LaTeX として設定する
 let g:tex_flavor = "latex"
 
-" tex の conceal を無効化
-let g:tex_conceal = ''
+" conceal を無効化
+set conceallevel=0
+
 " }}}
 
 " mapping {{{
