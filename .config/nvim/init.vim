@@ -204,8 +204,9 @@ set ttimeoutlen=0
 " .tex ファイルは基本的に LaTeX として設定する
 let g:tex_flavor = "latex"
 
-" tex の conceal を無効化
-let g:tex_conceal = ''
+" conceal を無効化
+set conceallevel=0
+
 " }}}
 
 " mapping {{{
@@ -300,6 +301,10 @@ vnoremap * y:<C-u>let @/ = @0<CR>n
 " }}}
 
 " autocmd / function {{{
+" terminalモードで行番号を非表示
+autocmd TermOpen * setlocal norelativenumber
+autocmd TermOpen * setlocal nonumber
+
 " ファイルを開いた時に、以前のカーソル位置を復元する
 function! s:RestoreCursorPostion()
     if line("'\"") <= line("$")

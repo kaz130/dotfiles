@@ -93,3 +93,11 @@ repo = 'arecarn/vim-crunch'
 [[plugins]]
 repo = 'arecarn/vim-selection'
 
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+    noremap <silent> <Leader>n :NERDTreeToggle<CR>
+'''
+

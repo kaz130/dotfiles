@@ -1,0 +1,14 @@
+%include ~/.hgrc.local
+
+[ui]
+editor = vi
+
+[extensions]
+color =
+pager =
+
+[pager]
+pager = less
+quiet = True
+attend = diff,status,log, qdiff,blame,annotate,pdiff,glog
+
