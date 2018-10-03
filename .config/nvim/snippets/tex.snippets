@@ -6,6 +6,20 @@ snippet figure2
         \label{${3}}
     \end{figure}
 
+snippet     subfigure
+alias       \begin{subfigure} \subfigure
+abbr        subcaption
+    \begin{subfigure}{${1}}
+        \centering
+        ${4:TARGET}
+        \caption{${2}}
+        \label{${3}}
+    \end{subfigure}
+
+snippet     includegraphics
+alias       \includegraphics
+    \includegraphics[${1:width=${2\}}]{${3}}
+
 snippet item_thebibliography
     \item
         ${1:author} 『${2:title}』，${3:publisher}，${4:year}，p.${5:pages}
@@ -19,6 +33,11 @@ abbr    includegraphics for TikZ
 snippet tikz_help_lines
 abbr    help lines for TikZ
     \draw[help lines] (0,0) grid (${1},${2});
+
+snippet     foreach
+alias       \foreach
+    \foreach ${1:\\\x} in {${2}}
+    ${0:TARGET}
 
 # circuiTikZ
 snippet circuitikz
