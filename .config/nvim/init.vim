@@ -14,51 +14,41 @@ filetype plugin indent off
 let g:rc_dir = $XDG_CONFIG_HOME . '/nvim'
 let mapleader = ','
 
-" dein {{{
-" プラグインが実際にインストールされるディレクトリ
-let s:dein_dir = $XDG_CACHE_HOME . '/dein'
+" vim-plug {{{
+call plug#begin(stdpath('data') . '/plugged')
 
-" ssh でダウンロード
-let g:dein#types#git#default_protocol = "ssh"
+Plug 'junegunn/vim-easy-align'
 
-" dein.vim 本体
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'cocopon/lightline-hybrid.vim'
 
-" dein.vim がなければ github からクローン
-if !isdirectory(s:dein_repo_dir)
-    execute '!git clone git@github.com:Shougo/dein.vim.git' s:dein_repo_dir
-endif
+Plug 'thinca/vim-template'
 
-execute 'set runtimepath^=' . s:dein_repo_dir
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+let g:deoplete#enable_at_startup = 1
 
-if dein#load_state(s:dein_dir)
-    call dein#begin(s:dein_dir)
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 
-    " プラグインリストを収めた TOML ファイル
-    let s:toml = g:rc_dir . '/dein.toml'
-    let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+Plug 'kana/vim-submode'
 
-    " TOML を読み込み、キャッシュしておく
-    call dein#load_toml(s:toml, {'lazy': 0})
-    call dein#load_toml(s:lazy_toml, {'lazy': 1})
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
-    " 設定終了
-    call dein#end()
-    call dein#save_state()
-endif
+Plug 'tyru/caw.vim'
 
+Plug 'nanotech/jellybeans.vim'
 
-" もし、未インストールものものがあったらインストール
-if dein#check_install()
-    call dein#install()
-endif
+Plug 'osyo-manga/vim-over'
 
-filetype plugin indent on
+call plug#end()
+
 " }}}
 
 " setting {{{
 syntax on
-colorscheme jellybeans
+if filereadable(expand(stdpath('data') . '/plugged/jellybeans.vim/colors/jellybeans.vim'))
+    colorscheme jellybeans
+endif
 
 " utf-8 でエンコーディング
 set termencoding=utf-8
@@ -236,7 +226,10 @@ noremap sH <C-w>H
 noremap sJ <C-w>J
 noremap sK <C-w>K
 noremap sL <C-w>L
+noremap sx <C-w>x
 noremap sr <C-w>r
+noremap sR <C-w>R
+noremap sT <C-w>T
 noremap so <C-w>o
 noremap s= <C-w>=
 noremap s> <C-w>>
@@ -249,15 +242,6 @@ noremap sn gt
 noremap sp gT
 noremap sq :<C-u>quit<CR>
 noremap sQ :<C-u>bdelete<CR>
-" submode
-call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
-call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
-call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
-call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
-call submode#map('bufmove', 'n', '', '>', '<C-w>>')
-call submode#map('bufmove', 'n', '', '<', '<C-w><')
-call submode#map('bufmove', 'n', '', '+', '<C-w>+')
-call submode#map('bufmove', 'n', '', '-', '<C-w>-')
 
 noremap Y y$
 
@@ -313,5 +297,138 @@ function! s:RestoreCursorPostion()
     endif
 endfunction
 autocmd init_vim BufWinEnter * call s:RestoreCursorPostion()
+" }}}
+
+" plugin {{{
+" vim-easy-align {{{
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+" }}}
+
+" lightline {{{
+let g:lightline = {
+    \ 'colorscheme': 'jellybeans',
+    \ 'mode_map': {'c': 'NORMAL'},
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
+    \ },
+    \ 'component_function': {
+    \   'modified': 'LightLineModified',
+    \   'readonly': 'LightLineReadonly',
+    \   'fugitive': 'LightLineFugitive',
+    \   'filename': 'LightLineFilename',
+    \   'fileformat': 'LightLineFileformat',
+    \   'filetype': 'LightLineFiletype',
+    \   'fileencoding': 'LightLineFileencoding',
+    \   'mode': 'LightLineMode'
+    \ }
+    \ }
+
+function! LightLineModified()
+    return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! LightLineReadonly()
+    return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
+endfunction
+
+function! LightLineFilename()
+    return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+        \  &ft == 'unite' ? unite#get_status_string() :
+        \  &ft == 'vimshell' ? vimshell#get_status_string() :
+        \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+        \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+endfunction
+
+function! LightLineFugitive()
+    try
+        if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
+            return fugitive#head()
+        endif
+    catch
+    endtry
+    return ''
+endfunction
+
+function! LightLineFileformat()
+    return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! LightLineFiletype()
+    return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+endfunction
+
+function! LightLineFileencoding()
+    return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+
+function! LightLineMode()
+    return winwidth(0) > 60 ? lightline#mode() : ''
+endfunctio
+
+" }}}
+
+" neosnippet {{{
+" Plugin key-mappings.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+set conceallevel=2 concealcursor=niv
+endif
+let g:neosnippet#snippets_directory = '~/.config/nvim/snippets'
+
+" }}}
+
+" vim-submode {{{
+call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
+call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
+call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
+call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
+call submode#map('bufmove', 'n', '', '>', '<C-w>>')
+call submode#map('bufmove', 'n', '', '<', '<C-w><')
+call submode#map('bufmove', 'n', '', '+', '<C-w>+')
+call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+
+" }}}
+
+" nerdtree {{{
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+noremap <silent> <Leader>n :NERDTreeToggle<CR>
+
+" }}}
+
+" caw {{{
+nmap <Leader>c <Plug>(caw:hatpos:toggle)
+vmap <Leader>c <Plug>(caw:hatpos:toggle)
+nmap <Leader>C <Plug>(caw:wrap:comment)
+vmap <Leader>C <Plug>(caw:wrap:comment)
+" }}}
+
+" vim-over {{{
+nnoremap <silent> <Leader>: :OverCommandLine<CR>
+vnoremap <silent> <Leader>: :OverCommandLine<CR>
+
+" }}}
+
 " }}}
 
