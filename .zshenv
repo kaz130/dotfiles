@@ -1,9 +1,6 @@
 # 環境変数
 export LANG=ja_JP.UTF-8
 
-# 重複したパスを登録しない
-typeset -U path
-
 # 配列pathの内容は環境変数PATHと同期される
 path=(
     /bin(N-/)
@@ -11,9 +8,7 @@ path=(
     /usr/local/sbin(N-/)
     $HOME/local/bin(N-/)
     $HOME/bin(N-/)
-
-    # Android Debug Bridge
-    $HOME/Library/Android/sdk/platform-tools
+    $HOME/.local/bin(N-/)
 
     # Debian GNU/Linux
     /var/lib/gems/*/bin(N-/)
@@ -53,4 +48,12 @@ case ${OSTYPE} in
     linux*)
         ;;
 esac
+
+
+if [ -f /home/linuxbrew/.linuxbrew/bin/brew ]; then
+    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+fi
+
+# 重複したパスを削除
+typeset -U path
 
