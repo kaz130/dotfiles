@@ -40,6 +40,8 @@ Plug 'nanotech/jellybeans.vim'
 
 Plug 'osyo-manga/vim-over'
 
+Plug 'shinespark/vim-list2tree'
+
 call plug#end()
 
 " }}}
@@ -282,6 +284,17 @@ nnoremap ZQ :<C-u>q<CR>
 " 選択した文字列をヤンク
 " ヤンクされた文字を最終検索パターン用レジスタに格納して検索
 vnoremap * y:<C-u>let @/ = @0<CR>n
+
+" ターミナルモード
+" <Esc>でターミナルモードを解除
+tnoremap <Esc> <C-\><C-n>
+
+" <Space>p を再設定
+autocmd TermOpen * noremap <buffer> <Space>p <Nop>
+autocmd TermOpen * noremap <buffer> <Space>P <Nop>
+autocmd TermOpen * noremap <buffer> <Space><Space>p "+p
+autocmd TermOpen * noremap <buffer> <Space><Space>P "+P
+
 " }}}
 
 " autocmd / function {{{
@@ -390,11 +403,8 @@ imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
-" For conceal markers.
-if has('conceal')
-set conceallevel=2 concealcursor=niv
-endif
-let g:neosnippet#snippets_directory = '~/.config/nvim/snippets'
+" snippets
+let g:neosnippet#snippets_directory = $XDG_CONFIG_HOME . '/nvim/snippets'
 
 " }}}
 
@@ -428,6 +438,10 @@ vmap <Leader>C <Plug>(caw:wrap:comment)
 nnoremap <silent> <Leader>: :OverCommandLine<CR>
 vnoremap <silent> <Leader>: :OverCommandLine<CR>
 
+" }}}
+
+" vim-list2tree {{{
+vnoremap <Leader>t :<c-u>'<,'>List2Tree<CR>
 " }}}
 
 " }}}
