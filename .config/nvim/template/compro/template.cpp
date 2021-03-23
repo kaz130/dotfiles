@@ -1,10 +1,43 @@
-#include <bits/stdc++.h>
-#define all(v) (v).begin(),(v).end()
+#include <algorithm>
+#include <bitset>
+#include <cmath>
+#include <complex>
+#include <deque>
+#include <exception>
+#include <fstream>
+#include <functional>
+#include <iomanip>
+#include <ios>
+#include <iosfwd>
+#include <iostream>
+#include <istream>
+#include <iterator>
+#include <limits>
+#include <list>
+#include <locale>
+#include <map>
+#include <memory>
+#include <new>
+#include <numeric>
+#include <ostream>
+#include <queue>
+#include <set>
+#include <sstream>
+#include <stack>
+#include <stdexcept>
+#include <streambuf>
+#include <string>
+#include <typeinfo>
+#include <utility>
+#include <valarray>
+#include <vector>
+
 using namespace std;
-using LL = long long;
-const int INF = 1e9;
+
+#define all(v) (v).begin(),(v).end()
+using ll = long long;
+constexpr ll INF = 1e18;
 
 int main(void) {
     return 0;
 }
-

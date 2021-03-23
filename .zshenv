@@ -21,7 +21,9 @@ path=(
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
 export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
 export XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
+
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
+export HISTFILE="$XDG_CACHE_HOME/zsh/history"
 
 export LESS="-i -M -R -W"
 export LESSOPEN="| /bin/lesspipe %s";
@@ -39,16 +41,6 @@ else
     export EDITOR="vi"
     export GIT_EDITOR="vi"
 fi
-
-case ${OSTYPE} in
-    darwin*)
-        # Mac
-        export ANDROID_HOME=$HOME/Library/Android/sdk
-        ;;
-    linux*)
-        ;;
-esac
-
 
 if [ -f /home/linuxbrew/.linuxbrew/bin/brew ]; then
     eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)

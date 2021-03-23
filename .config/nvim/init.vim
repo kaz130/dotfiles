@@ -36,11 +36,15 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 Plug 'tyru/caw.vim'
 
-Plug 'nanotech/jellybeans.vim'
+Plug 'cocopon/iceberg.vim'
 
 Plug 'osyo-manga/vim-over'
 
 Plug 'shinespark/vim-list2tree'
+
+Plug 'pixelneo/vim-python-docstring'
+
+Plug 'davidhalter/jedi-vim'
 
 call plug#end()
 
@@ -48,8 +52,8 @@ call plug#end()
 
 " setting {{{
 syntax on
-if filereadable(expand(stdpath('data') . '/plugged/jellybeans.vim/colors/jellybeans.vim'))
-    colorscheme jellybeans
+if filereadable(expand(stdpath('data') . '/plugged/iceberg.vim/colors/iceberg.vim'))
+    colorscheme iceberg
 endif
 
 " utf-8 でエンコーディング
@@ -199,6 +203,11 @@ let g:tex_flavor = "latex"
 " conceal を無効化
 set conceallevel=0
 
+" provider
+let g:loaded_python_provider = 0
+let g:python3_host_prog = '/usr/local/bin/python3'
+let g:loaded_ruby_provider = 0
+let g:loaded_node_provider = 0
 " }}}
 
 " mapping {{{
@@ -443,6 +452,4 @@ vnoremap <silent> <Leader>: :OverCommandLine<CR>
 " vim-list2tree {{{
 vnoremap <Leader>t :<c-u>'<,'>List2Tree<CR>
 " }}}
-
 " }}}
-
