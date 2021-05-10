@@ -46,6 +46,8 @@ Plug 'pixelneo/vim-python-docstring'
 
 Plug 'davidhalter/jedi-vim'
 
+Plug 'cespare/vim-toml'
+
 call plug#end()
 
 " }}}
@@ -64,29 +66,24 @@ set fileencodings=utf-8,cp932
 
 " スワップファイル
 set swapfile
-set directory=$XDG_CACHE_HOME/vim/swap
+set directory=$XDG_DATA_HOME/nvim/swap/
 set updatecount=200
 set updatetime=4000
 
 " バックアップファイル
 set backup
-set backupdir=$XDG_CACHE_HOME/vim/backup
+set backupdir=$XDG_DATA_HOME/nvim/backup
 set backupcopy=yes
 set backupext=~
 
 " アンドゥファイル
 set undofile
-set undodir=$XDG_CACHE_HOME/vim/undo
+set undodir=$XDG_DATA_HOME/nvim/undo
 set undolevels=200
 
 " netrw
-let g:netrw_home=$XDG_CACHE_HOME . '/vim/netrw'
+let g:netrw_home=$XDG_DATA_HOME . '/nvim/netrw'
 let g:loaded_netrwPlugin = 1
-
-" viminfo
-if !has('nvim')
-    set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
-endif
 
 " 100操作までコマンド履歴を残す
 set history=100

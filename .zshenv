@@ -30,6 +30,8 @@ export LESSOPEN="| /bin/lesspipe %s";
 export LESSCLOSE="/bin/lesspipe %s %s";
 export PAGER=less
 
+export GIBO_BOILERPLATES="$XDG_DATA_HOME/gitignore-boilerplates"
+
 # 環境変数EDITORに nvim を設定
 if (( $+commands[nvim] )); then
     export EDITOR="nvim"
