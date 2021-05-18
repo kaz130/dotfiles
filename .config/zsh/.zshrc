@@ -173,5 +173,16 @@ mkcdir ()
 #     archey
 # fi
 
+# Terraform
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
+
+# Google Cloud SDK
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/bin/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/bin/google-cloud-sdk/path.zsh.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/bin/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/bin/google-cloud-sdk/completion.zsh.inc"; fi
+
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 source $ZDOTDIR/zshrc.d/*
