@@ -48,6 +48,10 @@ Plug 'davidhalter/jedi-vim'
 
 Plug 'cespare/vim-toml'
 
+Plug 'hashivim/vim-terraform'
+
+Plug 'jjo/vim-cue'
+
 call plug#end()
 
 " }}}

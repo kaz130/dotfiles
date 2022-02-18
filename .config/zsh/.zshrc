@@ -14,9 +14,8 @@ colors
 bindkey -e
 
 # ヒストリの設定
-HISTFILE=$XDG_CACHE_HOME/zsh/zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
+export HISTSIZE=100000
+export SAVEHIST=100000
 
 case ${OSTYPE} in
     darwin*)
@@ -176,6 +175,9 @@ mkcdir ()
 # Terraform
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
+TF_CLI_ARGS_plan="--parallelism=100"
+TF_CLI_ARGS_apply="--parallelism=100"
+if [ -f "$HOME/bin/terraform" ]; then alias terraform=$HOME/bin/terraform; fi
 
 # Google Cloud SDK
 # The next line updates PATH for the Google Cloud SDK.
