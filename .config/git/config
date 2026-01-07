@@ -4,28 +4,33 @@
 # 	name = example
 # 	email = example@example.com
 [colur]
-	ui = true
+    ui = true
 [alias]
-	co = checkout
-	st = status
-	br = branch
-	ci = commit
+    co = checkout
+    st = status
+    br = branch
+    ci = commit
+    sw = switch
+    lg = log --graph
 [core]
-	precomposeunicode = true
-	quotepath = false
+    precomposeunicode = true
+    quotepath = false
+    autocrlf = input
 
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
 [push]
-	default = simple
+    default = simple
+[pull]
+    rebase = false
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
 [init]
-	defaultBranch = main
+    defaultBranch = main

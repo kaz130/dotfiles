@@ -1,4 +1,4 @@
-PS1='\n\e[1;32m\W $ \e[0m'
+PS1='\n\[\e[1;32m\]\W $ \[\e[m\]'
 
 # XDG Bse Directory
 # XDG_CONFIG_HOMEが未定義のとき、新しく定義される

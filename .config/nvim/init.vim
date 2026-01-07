@@ -63,7 +63,6 @@ if filereadable(expand(stdpath('data') . '/plugged/iceberg.vim/colors/iceberg.vi
 endif
 
 " utf-8 でエンコーディング
-set termencoding=utf-8
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,cp932
@@ -206,9 +205,10 @@ set conceallevel=0
 
 " provider
 let g:loaded_python_provider = 0
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python3_host_prog = $XDG_DATA_HOME . '/nvim/venv/bin/python'
 let g:loaded_ruby_provider = 0
 let g:loaded_node_provider = 0
+let g:loaded_perl_provider = 0
 " }}}
 
 " mapping {{{
@@ -298,6 +298,7 @@ vnoremap * y:<C-u>let @/ = @0<CR>n
 " ターミナルモード
 " <Esc>でターミナルモードを解除
 tnoremap <Esc> <C-\><C-n>
+tnoremap <C-[> <C-\><C-n>
 
 " <Space>p を再設定
 autocmd TermOpen * noremap <buffer> <Space>p <Nop>

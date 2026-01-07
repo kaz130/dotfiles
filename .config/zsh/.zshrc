@@ -175,8 +175,8 @@ mkcdir ()
 # Terraform
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
-TF_CLI_ARGS_plan="--parallelism=100"
-TF_CLI_ARGS_apply="--parallelism=100"
+export TF_CLI_ARGS_plan="--parallelism=100"
+export TF_CLI_ARGS_apply="--parallelism=100"
 if [ -f "$HOME/bin/terraform" ]; then alias terraform=$HOME/bin/terraform; fi
 
 # Google Cloud SDK
@@ -186,5 +186,25 @@ if [ -f "$HOME/bin/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/bin/google-cl
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/bin/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/bin/google-cloud-sdk/completion.zsh.inc"; fi
 
+export CLOUDSDK_PYTHON_SITEPACKAGES=1
+
+# Node Version Manager
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Kubernetes
+if [[ $commands[kubectl] ]] then
+    source <(kubectl completion zsh)
+    alias k=kubectl
+    complete -o default -F __start_kubectl k
+fi
+
+# Docker CLI
+fpath=($HOME/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 source $ZDOTDIR/zshrc.d/*
+
